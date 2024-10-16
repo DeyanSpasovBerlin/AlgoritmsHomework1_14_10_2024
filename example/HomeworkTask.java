@@ -7,10 +7,20 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class HomeworkTask {
-    public void showHomeworkTask() throws IOException {
-        File HomeworkTask = new File("HomeworkTask.pdf");
-        System.out.println(" The path is: "+HomeworkTask.getCanonicalPath());
-        Scanner reader  = new Scanner(new File("D:\\TEL-RAN\\Projects\\Lessons\\Algorithms\\Homework1_14_10_2024\\HomeworkTask.pdf"));
-    }
 
+    public void readFile(){
+            try {
+            File myObj = new File("Homework1_14_10_2024.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        System.out.println("\n**********************\n");
+    }
 }
